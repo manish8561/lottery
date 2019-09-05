@@ -1,0 +1,112 @@
+<header class="app-header navbar">
+    <a class="navbar-brand" ng-reflect-router-link="/dashboard" href="#/dashboard">
+     <img class="navbar-brand-full" ng-reflect-ng-class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo" ng-reflect-app-html-attr="[object Object]">
+     <img class="navbar-brand-minimized" ng-reflect-ng-class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo" ng-reflect-app-html-attr="[object Object]">
+    </a>
+  <ul class="nav navbar-nav d-md-down-none">
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/']" routerLinkActive="router-link-active" >Home</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/user']" routerLinkActive="router-link-active" >Dashboard</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav ml-auto">
+    <!--<li class="nav-item d-md-down-none">
+      <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
+    </li>-->
+    <li class="nav-item d-md-down-none">
+      <a class="nav-link" href="#"><i class="icon-list"></i></a>
+    </li>
+  </ul>
+</header>
+<div class="app-body">
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+      </ol>
+    </nav>
+    
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div><!-- /.container-fluid -->
+  </main>
+  
+</div>
+<footer class="footer-section">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="footer-widget">
+              <div class="widget widget_about">
+                <a [routerLink]="['/']" routerLinkActive="router-link-active"  class="site-logo"><img src="assets/images/logo.png" alt="image"></a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                <ul class="social-links d-flex">
+                  <li><a href="#0"><i class=" fa fa-facebook-f"></i></a></li>
+                  <li><a href="#0"><i class=" fa fa-twitter"></i></a></li>
+                  <li><a href="#0"><i class=" fa fa-youtube"></i></a></li>
+                  <li><a href="#0"><i class=" fa fa-dribbble"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div><!-- footer-widget end -->
+          <div class="col-lg-1">
+            <div class="footer-widget">
+              <div class="widget widget_menu">
+                <h3 class="widget-title">Menu</h3>
+                <ul>
+                  <li><a href="#0">home</a></li>
+                  <li><a href="#0">results</a></li>
+                  <li><a href="#0">lotteries</a></li>
+                  <li><a href="#0">contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="footer-widget">
+              <div class="widget widget_subscibe">
+                <h3 class="widget-title">subscribe</h3>
+                <form class="subscribe-form">
+                  <input type="email" name="sub-email" id="sub_email" placeholder="Email address">
+                  <button type="submit" class="subscribe-btn">subscribe</button>
+                </form>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="footer-widget">
+              <div class="widget widget_address">
+                <h3 class="widget-title">address</h3>
+                <ul>
+                  <li><i class="fa fa-home"></i><span>945 Colonial Street Capitol Heights, MD 20743</span></li>
+                  <li><i class="fa fa-phone"></i><a href="tel:46456743455874">(909) 982-7464</a></li>
+                  <li><i class="fa fa-home"></i><a href="mailto:random@random.com ">random@random.com </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p>2019 All Rights Reserved. - Created by <a href="http://harmantech.cf" target="_blank">Harman Tech</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
