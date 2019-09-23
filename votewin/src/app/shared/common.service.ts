@@ -10,13 +10,15 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class CommonService implements CanActivate {
-  public isloggedIn = false;
+  public isLoggedIn = false;
   public loggedUser: any = {};
   public login_token = '';
   private message = '';
   constructor(private http: HttpClient, private router: Router) {
-    if (localStorage.getItem('isLoggedin')) {
-      this.isloggedIn = false;
+    if (localStorage.getItem('isLoggedin') === 'yes') {
+      this.isLoggedIn = true;
+      this.loggedUser = JSON.parse(localStorage.getItem('user'));
+      this.login_token = localStorage.getItem('login_token');
     }
   }
   canActivate() {
@@ -151,11 +153,18 @@ export class CommonService implements CanActivate {
     }
   }
   login() {
-    this.isloggedIn = true;
-    this.loggedUser = { name: 'manish' };
+    this.isLoggedIn = true;
+    this.loggedUser = { name: 'manish', role: 'client' };
+    this.login_token = 'mmmmmmmmmmmmmmmmmmm';
+    localStorage.setItem('isLoggedin', 'yes');
+    localStorage.setItem('user', JSON.stringify(this.loggedUser));
+    localStorage.setItem('login_token', this.login_token);
   }
   logout() {
-    this.isloggedIn = false;
+    this.isLoggedIn = false;
     this.loggedUser = {};
+    localStorage.removeItem('isLoggedin');
+    localStorage.removeItem('user');
+    localStorage.removeItem('login_token');
   }
 }

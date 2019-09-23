@@ -522,3 +522,52 @@ app-home{
  color: var(--second-color);
 }
 /* footer-section css end */
+
+
+ /* contact-section css start */
+ .address-area {
+  padding: 30px 30px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+.address-area ul li {
+ display: -ms-flexbox;
+ display: flex;
+ -ms-flex-wrap: wrap;
+ flex-wrap: wrap;
+}
+.address-area ul li+li {
+ margin-top: 10px;
+}
+.address-area ul li .icon {
+ width: 30px;
+}
+.address-area ul li .content p {
+ line-height: 1.7;
+}
+/* contact-section css end */
+.inner-page-banner{
+  background-image:-webkit-linear-gradient( 90deg, rgb(30,60,114) 1%, rgb(42,82,152) 100%);
+}
+.inner-page-wrapper {
+    padding-top: 122px;
+    padding-bottom: 122px;
+}
+.page-title {
+  font-size: 30px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+.contact-section{
+  .section-header{
+    margin:20px 0;
+  }
+  textarea.form-control{
+    height: 270px;
+  }
+}

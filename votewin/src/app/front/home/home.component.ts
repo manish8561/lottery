@@ -9,9 +9,11 @@ import { CommonService } from '../../shared/common.service';
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router, private myservice:CommonService){ }
 
+  isLoggedIn = false;
+  loggedUser: any;
   radioModel: string = 'Month';
+  constructor(private router: Router, private myservice: CommonService) { }
 
   // lineChart1
   public lineChart1Data: Array<any> = [
@@ -382,12 +384,19 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.myservice.loggedUser,'home page');
+    this.isLoggedIn = this.myservice.isLoggedIn;
+    this.loggedUser = this.myservice.loggedUser;
     // generate random values for mainChart
     for (let i = 0; i <= this.mainChartElements; i++) {
       this.mainChartData1.push(this.random(50, 200));
       this.mainChartData2.push(this.random(80, 100));
       this.mainChartData3.push(65);
     }
+  }
+  quickPick(): void {
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    }
+    console.log('quick pick functionality');
   }
 }

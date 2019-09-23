@@ -1,7 +1,8 @@
-import { Component, OnDestroy, Inject } from '@angular/core';
+import { Component, OnDestroy, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { navItems } from '../../_nav';
 import { Router } from '@angular/router';
+import { CommonService } from '../../shared/common.service';
 
 
 @Component({
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
   templateUrl: './front-layout.component.html',
   styleUrls: ['./front-layout.component.scss']
 })
-export class FrontLayoutComponent implements OnDestroy {
+export class FrontLayoutComponent implements OnInit, OnDestroy {
   public navItems = navItems;
   public sidebarMinimized = true;
   private changes: MutationObserver;
   public element: HTMLElement;
-  constructor(public router: Router, @Inject(DOCUMENT) _document?: any) {
+  public isLoggedIn = false;
+  constructor(public router: Router, private myservice: CommonService, @Inject(DOCUMENT) _document?: any) {
 
     this.changes = new MutationObserver((mutations) => {
       this.sidebarMinimized = _document.body.classList.contains('sidebar-minimized');
@@ -25,8 +27,14 @@ export class FrontLayoutComponent implements OnDestroy {
       attributeFilter: ['class']
     });
   }
-
+  ngOnInit(): void {
+    this.isLoggedIn = this.myservice.isLoggedIn;
+  }
   ngOnDestroy(): void {
     this.changes.disconnect();
+  }
+  logout(){
+    this.myservice.logout();
+    this.router.navigate(['/login']);
   }
 }

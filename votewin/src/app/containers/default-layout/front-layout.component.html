@@ -1,7 +1,7 @@
 <header class="app-header navbar">
     <a class="navbar-brand" ng-reflect-router-link="/dashboard" href="#/dashboard">
-     <img class="navbar-brand-full" ng-reflect-ng-class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo" ng-reflect-app-html-attr="[object Object]">
-     <img class="navbar-brand-minimized" ng-reflect-ng-class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo" ng-reflect-app-html-attr="[object Object]">
+     <img class="navbar-brand-full" ng-reflect-ng-class="navbar-brand-full" src="assets/img/brand/logo.svg" width="89" height="25" alt="Logo" ng-reflect-app-html-attr="[object Object]">
+     <img class="navbar-brand-minimized" ng-reflect-ng-class="navbar-brand-minimized" src="assets/img/brand/sygnet.svg" width="30" height="30" alt="Logo" ng-reflect-app-html-attr="[object Object]">
     </a>
   <ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item px-3">
@@ -10,11 +10,14 @@
     <li class="nav-item px-3">
       <a class="nav-link" [routerLink]="['/user']" routerLinkActive="router-link-active" >Dashboard</a>
     </li>
-    <li class="nav-item px-3">
+    <li class="nav-item px-3" *ngIf="!isLoggedIn">
       <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
     </li>
-    <li class="nav-item px-3">
+    <li class="nav-item px-3" *ngIf="!isLoggedIn">
       <a class="nav-link" [routerLink]="['/register']" routerLinkActive="router-link-active" >Register</a>
+    </li>
+    <li class="nav-item px-3">
+      <a class="nav-link" [routerLink]="['/contact']" routerLinkActive="router-link-active" >Contact</a>
     </li>
   </ul>
   <ul class="nav navbar-nav ml-auto">
@@ -22,7 +25,7 @@
       <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
     </li>-->
     <li class="nav-item d-md-down-none">
-      <a class="nav-link" href="#"><i class="icon-list"></i></a>
+      <a class="nav-link" (click)="logout()" *ngIf="isLoggedIn"><i class="cui-account-logout"></i></a>
     </li>
   </ul>
 </header>

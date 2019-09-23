@@ -27,7 +27,7 @@ export class DefaultLayoutComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    console.log(this.myservice.isloggedIn);
+    console.log(this.myservice.isLoggedIn);
     console.log(this.myservice.loggedUser);
 
   }

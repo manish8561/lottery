@@ -7,17 +7,29 @@ import { Router } from '@angular/router';
   templateUrl: 'login.component.html'
 })
 export class LoginComponent implements OnInit {
+  loggedUser: any;
   constructor(private myservice: CommonService, private router: Router) { }
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    console.log(this.myservice.isloggedIn);
-    console.log(this.myservice.loggedUser);
+    this.loggedUser = this.myservice.loggedUser;
+    if (this.myservice.isLoggedIn) {
+      if (this.loggedUser.role === 'client') {
+        this.router.navigate(['/']);
+      }
+    }
+    console.log(this.myservice.isLoggedIn);
+
 
   }
   login() {
     console.log('login submit');
     this.myservice.login();
-    this.router.navigate(['/user']);
+    this.loggedUser = this.myservice.loggedUser;
+    if (this.myservice.isLoggedIn) {
+      if (this.loggedUser.role === 'client') {
+        this.router.navigate(['/']);
+      }
+    } else {
+      this.router.navigate(['/user']);
+    }
   }
 }
